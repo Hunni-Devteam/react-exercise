@@ -2,6 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import SimpleWatch from './components/SimpleWatch.js';
+
 function App() {
   return (
     <div className="App">
@@ -19,6 +21,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <SimpleWatch />
     </div>
   );
 }
