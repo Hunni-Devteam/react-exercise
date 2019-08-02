@@ -1,31 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.scss';
+import React from 'react'
+import logo from './logo.svg'
+import './App.scss'
 
-import SimpleWatch from './components/SimpleWatch/SimpleWatch.js';
+import SimpleWatch from './components/SimpleWatch/SimpleWatch.js'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <div className="abs-top-centered text-white">
-        <SimpleWatch/>
+class App extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      helloReactTexts: ['H','e','l','l','o',' ','R','e','a','c','t','!']
+    }
+  }
+
+  render () {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>{ this.state.helloReactTexts.join('') }</p>
+          <button onClick={this.shakaShaka}>Shaka Shaka..</button>
+        </header>
+        <div className="abs-top-centered text-white">
+          <SimpleWatch/>
+        </div>
       </div>
-    </div>
-  );
+    )
+  }
+
+  shakaShaka = () => {
+    this.setState({
+      helloReactTexts: this.shuffle(this.state.helloReactTexts)
+    })
+  }
+  /**
+   * Shuffles array in place. ES6 version
+   * @param {Array} a items An array containing the items.
+   */
+  shuffle (a) {
+      for (let i = a.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+  }
 }
 
-export default App;
+
+export default App
