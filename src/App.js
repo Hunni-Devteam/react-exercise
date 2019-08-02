@@ -21,7 +21,13 @@ function App() {
           Learn React
         </a>
       </header>
-      <SimpleWatch />
+      { 
+        [1,2,3].map((number) =>
+        <div key={number}>
+          <SimpleWatch />
+        </div>
+        )
+      }
     </div>
   );
 }
