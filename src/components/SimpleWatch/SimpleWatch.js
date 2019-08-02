@@ -1,3 +1,4 @@
+import './SimpleWatch.scss';
 import React from 'react';
 // import ReactDOM from 'react-dom';
 
@@ -19,11 +20,11 @@ class SimpleWatch extends React.Component {
     let minute = now.getMinutes()
     let second = now.getSeconds()
 
-    return <h1>
+    return <div className="simple-watch">
       { year }-{ month > 9 ? month : '0' + month }-{ date > 9 ? date : '0' + date }
       &nbsp;
       { hour > 9 ? hour : '0' + hour }:{ minute > 9 ? minute : '0' + minute }:{ second > 9 ? second : '0' + second }
-    </h1>
+    </div>
   }
 
   componentDidMount() {

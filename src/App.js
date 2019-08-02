@@ -1,8 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 
-import SimpleWatch from './components/SimpleWatch.js';
+import SimpleWatch from './components/SimpleWatch/SimpleWatch.js';
 
 function App() {
   return (
@@ -21,13 +21,9 @@ function App() {
           Learn React
         </a>
       </header>
-      { 
-        [1,2,3].map((number) =>
-        <div key={number}>
-          <SimpleWatch />
-        </div>
-        )
-      }
+      <div className="abs-top-centered text-white">
+        <SimpleWatch/>
+      </div>
     </div>
   );
 }
