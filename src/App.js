@@ -18,7 +18,7 @@ class App extends React.Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>{ this.state.helloReactTexts.join('') }</p>
-          <button onClick={this.shakaShaka}>Shaka Shaka..</button>
+          <button onClick={this.shakaShaka.bind(this, 'text')}>Shaka Shaka..</button>
         </header>
         <div className="abs-top-centered text-white">
           <SimpleWatch/>
@@ -27,7 +27,8 @@ class App extends React.Component {
     )
   }
 
-  shakaShaka = () => {
+  shakaShaka = (text, e) => {
+    console.log(text, e)
     this.setState({
       helloReactTexts: this.shuffle(this.state.helloReactTexts)
     })
